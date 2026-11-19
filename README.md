@@ -59,7 +59,7 @@ download dependencies.
 | Environment | Status |
 |---|---|
 | Fedora 44, GCC 16, LLVM/Clang 22.1.8, glibc 2.43 | Verified: 23/23 CTest on lab2 |
-| Ubuntu 24.04, GCC 13, LLVM/Clang 22 | Verified in a clean container with LLVM 22 from apt.llvm.org |
+| Ubuntu 24.04, GCC 13, LLVM/Clang 22 | Build and core process tests verified in a clean container; full 23-test suite not completed on Ubuntu |
 | Ubuntu 22.04 | Expected with LLVM 22 from apt.llvm.org; not qualified here |
 | Other x86-64 glibc distros | Unverified. You must supply LLVM 22 and a 64-bit static libstdc++ for the full suite |
 | musl/Alpine | Unsupported (dynamic loader and test assumptions are glibc-specific) |

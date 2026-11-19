@@ -31,6 +31,21 @@ with `-j 16`. The same suite also passed from the development tree
 | `/bin/ls` | 504,972 instructions, 90 syscalls, directory output match |
 | virtual mkdir/open/rename/unlink/rmdir | 39 instructions, native exit 0 |
 
+## Ubuntu 24.04
+
+A clean `ubuntu:24.04` container with LLVM/Clang 22 from apt.llvm.org built
+successfully. The following core tests passed there:
+
+- `dynamic_linux_process_execution` (22.26 s)
+- `linux_process_files_and_signals` (22.21 s)
+- `dynamic_loader_glibc_process` (170.52 s)
+- `cpp_exception_unwind_process` (619.29 s)
+- `glibc_pthread_and_dlopen` (413.46 s)
+- `x87_long_double_process` (77.05 s)
+
+The full 23-test suite was not completed on Ubuntu; use Fedora 44 for the
+qualified full-suite result.
+
 ## What the numbers mean
 
 `TESTED`/`EXECUTED` means the observed input and path matched native behavior.

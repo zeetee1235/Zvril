@@ -8,9 +8,9 @@ Unsupported behavior is rejected with a diagnostic.
 | Area | Support |
 |---|---|
 | Architecture | x86-64 only |
-| OS | Linux with glibc; Fedora 44 is the qualified build host |
+| OS | Linux with glibc. Fedora 44 is fully tested; Ubuntu 24.04 with LLVM 22 has verified build and core process tests |
 | Toolchain | LLVM/Clang/llvm-link 22.x, CMake 3.21+, C++20 |
-| Known gaps | musl/Alpine, non-x86-64, clean Ubuntu/RHEL VM qualification |
+| Known gaps | musl/Alpine, non-x86-64, full Ubuntu/RHEL VM qualification |
 
 ## Static lifting / verification
 
