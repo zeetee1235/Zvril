@@ -1,0 +1,2 @@
+#pragma once
+inline constexpr const char kRemillLicense[] = R"ZVRIL_LICENSE(@ZVRIL_REMILL_LICENSE_TEXT@)ZVRIL_LICENSE";

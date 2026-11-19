@@ -1,0 +1,292 @@
+{
+  "schema_version": "0.1",
+  "packages": [
+    {
+      "repository": "zserge/jsmn",
+      "commit": "25647e692c7906b96ffd2b05ca54c097948e879c"
+    },
+    {
+      "repository": "DaveGamble/cJSON",
+      "commit": "6d9f2443ab071f86e5d9b43025a40929ec41c46c"
+    },
+    {
+      "repository": "Cyan4973/xxHash",
+      "commit": "2ec67caeb18ec15ae60c0853174331089acddfc0"
+    },
+    {
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3"
+    },
+    {
+      "repository": "sheredom/utf8.h",
+      "commit": "913014e0d56051b242a1959d24d3f3cb5d13a9ef"
+    },
+    {
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71"
+    },
+    {
+      "repository": "rxi/vec",
+      "commit": "20e84224ceb29a8f76d2b9d0ccfc547258a14ec5"
+    },
+    {
+      "repository": "rxi/log.c",
+      "commit": "f9ea34994bd58ed342d2245cd4110bb5c6790153"
+    },
+    {
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6"
+    },
+    {
+      "repository": "kokke/tiny-regex-c",
+      "commit": "f2632c6d9ed25272987471cdb8b70395c2460bdb"
+    }
+  ],
+  "files": [
+    {
+      "path": "third_party/corpus/zserge-jsmn/jsmn.h",
+      "sha": "8ac14c1bdec9d1600ae5217550902eecce0f56e1",
+      "repository": "zserge/jsmn",
+      "commit": "25647e692c7906b96ffd2b05ca54c097948e879c",
+      "upstream_path": "jsmn.h"
+    },
+    {
+      "path": "third_party/corpus/zserge-jsmn/LICENSE",
+      "sha": "c84fb2e973dd885ea5fd426aedf6e5a1849feeaa",
+      "repository": "zserge/jsmn",
+      "commit": "25647e692c7906b96ffd2b05ca54c097948e879c",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/DaveGamble-cJSON/cJSON.c",
+      "sha": "88c2d95b313132abde96d0f6e200789c771fc1e1",
+      "repository": "DaveGamble/cJSON",
+      "commit": "6d9f2443ab071f86e5d9b43025a40929ec41c46c",
+      "upstream_path": "cJSON.c"
+    },
+    {
+      "path": "third_party/corpus/DaveGamble-cJSON/cJSON.h",
+      "sha": "cab5feb427725f8e5c82287f7fe59481b609b9b5",
+      "repository": "DaveGamble/cJSON",
+      "commit": "6d9f2443ab071f86e5d9b43025a40929ec41c46c",
+      "upstream_path": "cJSON.h"
+    },
+    {
+      "path": "third_party/corpus/DaveGamble-cJSON/LICENSE",
+      "sha": "78deb0406d713ab9730e3c2447be1abdbd70b9a2",
+      "repository": "DaveGamble/cJSON",
+      "commit": "6d9f2443ab071f86e5d9b43025a40929ec41c46c",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/Cyan4973-xxHash/xxhash.c",
+      "sha": "e60cc37f13c27ff0668ec2535937df3f4c097ec2",
+      "repository": "Cyan4973/xxHash",
+      "commit": "2ec67caeb18ec15ae60c0853174331089acddfc0",
+      "upstream_path": "xxhash.c"
+    },
+    {
+      "path": "third_party/corpus/Cyan4973-xxHash/xxhash.h",
+      "sha": "744b6cbc4df6b944fce649405fd2755ee5ba7a3a",
+      "repository": "Cyan4973/xxHash",
+      "commit": "2ec67caeb18ec15ae60c0853174331089acddfc0",
+      "upstream_path": "xxhash.h"
+    },
+    {
+      "path": "third_party/corpus/Cyan4973-xxHash/LICENSE",
+      "sha": "e4c5da7234eca7baad9a46f0b144e49ccad2e500",
+      "repository": "Cyan4973/xxHash",
+      "commit": "2ec67caeb18ec15ae60c0853174331089acddfc0",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz.c",
+      "sha": "c92a896929308505fefade1be56cfa9314e11b91",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz.c"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz.h",
+      "sha": "6879721e0f0c1ce99f5d797080161f77ef7c8574",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz.h"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz_common.h",
+      "sha": "6f07f0b45f19b0107e64620f0c4e28d8cf21af31",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz_common.h"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz_tdef.h",
+      "sha": "eb557a5590266d6fc0e098ad1a4bedbc0b7502ed",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz_tdef.h"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz_tinfl.h",
+      "sha": "c130451f2d46d4d609dc36a0c75448ca79561704",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz_tinfl.h"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/miniz_zip.h",
+      "sha": "f034101d6a1287aeb69c15dbe520b81751284658",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "miniz_zip.h"
+    },
+    {
+      "path": "third_party/corpus/richgel999-miniz/LICENSE",
+      "sha": "1982f4bb8f4afa3dcbe803887fb4af7573430e51",
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/sheredom-utf8.h/utf8.h",
+      "sha": "cbc914a0ed7081c74a1abdb25b875f0d0454232d",
+      "repository": "sheredom/utf8.h",
+      "commit": "913014e0d56051b242a1959d24d3f3cb5d13a9ef",
+      "upstream_path": "utf8.h"
+    },
+    {
+      "path": "third_party/corpus/sheredom-utf8.h/LICENSE",
+      "sha": "68a49daad8ff7e35068f2b7a97d643aab440eaec",
+      "repository": "sheredom/utf8.h",
+      "commit": "913014e0d56051b242a1959d24d3f3cb5d13a9ef",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/antirez-sds/sds.c",
+      "sha": "3a7eae72f7591b3669af73954c42088ebbeccc4f",
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71",
+      "upstream_path": "sds.c"
+    },
+    {
+      "path": "third_party/corpus/antirez-sds/sds.h",
+      "sha": "adcc12c0a7646d2c88a796ad5591931017140999",
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71",
+      "upstream_path": "sds.h"
+    },
+    {
+      "path": "third_party/corpus/antirez-sds/sdsalloc.h",
+      "sha": "f43023c48438961445f6064ae8d0cc25f2b42f21",
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71",
+      "upstream_path": "sdsalloc.h"
+    },
+    {
+      "path": "third_party/corpus/antirez-sds/LICENSE",
+      "sha": "d1199bcf724dacae76b9aabd94e1ebb2f8ce8cc1",
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/rxi-vec/src/vec.c",
+      "sha": "399104e90c2ecd771068fbbfff86d63b7bb2dc9f",
+      "repository": "rxi/vec",
+      "commit": "20e84224ceb29a8f76d2b9d0ccfc547258a14ec5",
+      "upstream_path": "src/vec.c"
+    },
+    {
+      "path": "third_party/corpus/rxi-vec/src/vec.h",
+      "sha": "2430611e35f6aa808cdbf478b3f99703fa57ccef",
+      "repository": "rxi/vec",
+      "commit": "20e84224ceb29a8f76d2b9d0ccfc547258a14ec5",
+      "upstream_path": "src/vec.h"
+    },
+    {
+      "path": "third_party/corpus/rxi-vec/LICENSE",
+      "sha": "03b65555c390098162b0e9b23d0b424de08b3666",
+      "repository": "rxi/vec",
+      "commit": "20e84224ceb29a8f76d2b9d0ccfc547258a14ec5",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/rxi-log.c/src/log.c",
+      "sha": "1a7626ee26f4ea09930e1578828654c62c531ac4",
+      "repository": "rxi/log.c",
+      "commit": "f9ea34994bd58ed342d2245cd4110bb5c6790153",
+      "upstream_path": "src/log.c"
+    },
+    {
+      "path": "third_party/corpus/rxi-log.c/src/log.h",
+      "sha": "b1fae240e138a175618614f0159489d73eff2f20",
+      "repository": "rxi/log.c",
+      "commit": "f9ea34994bd58ed342d2245cd4110bb5c6790153",
+      "upstream_path": "src/log.h"
+    },
+    {
+      "path": "third_party/corpus/rxi-log.c/LICENSE",
+      "sha": "39ddd05cbf983749aa71274d6206d40dca055d2d",
+      "repository": "rxi/log.c",
+      "commit": "f9ea34994bd58ed342d2245cd4110bb5c6790153",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/clibs-list/src/list.c",
+      "sha": "ac71b8b377111e74717cab1fc186d8f70e091050",
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6",
+      "upstream_path": "src/list.c"
+    },
+    {
+      "path": "third_party/corpus/clibs-list/src/list.h",
+      "sha": "c0075dd02e967baae02550ce6ed453ae30e1aeea",
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6",
+      "upstream_path": "src/list.h"
+    },
+    {
+      "path": "third_party/corpus/clibs-list/src/list_node.c",
+      "sha": "3457856ec010895fcaa13986ab31fb7b8adfbbf9",
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6",
+      "upstream_path": "src/list_node.c"
+    },
+    {
+      "path": "third_party/corpus/clibs-list/src/list_iterator.c",
+      "sha": "f1363b2859bd6e57bcee625845a20d94083fae32",
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6",
+      "upstream_path": "src/list_iterator.c"
+    },
+    {
+      "path": "third_party/corpus/clibs-list/LICENSE",
+      "sha": "8dc55f9df0d6294ed9890f82cd93892c50957556",
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6",
+      "upstream_path": "LICENSE"
+    },
+    {
+      "path": "third_party/corpus/kokke-tiny-regex-c/re.c",
+      "sha": "20d1474a16c4b2432433678c72f46ffc7a96c83f",
+      "repository": "kokke/tiny-regex-c",
+      "commit": "f2632c6d9ed25272987471cdb8b70395c2460bdb",
+      "upstream_path": "re.c"
+    },
+    {
+      "path": "third_party/corpus/kokke-tiny-regex-c/re.h",
+      "sha": "69facc683f07b51309b1ece3bd6a7b2d172fee5a",
+      "repository": "kokke/tiny-regex-c",
+      "commit": "f2632c6d9ed25272987471cdb8b70395c2460bdb",
+      "upstream_path": "re.h"
+    },
+    {
+      "path": "third_party/corpus/kokke-tiny-regex-c/LICENSE",
+      "sha": "cf1ab25da0349f84a3fdd40032f0ce99db813b8b",
+      "repository": "kokke/tiny-regex-c",
+      "commit": "f2632c6d9ed25272987471cdb8b70395c2460bdb",
+      "upstream_path": "LICENSE"
+    }
+  ]
+}

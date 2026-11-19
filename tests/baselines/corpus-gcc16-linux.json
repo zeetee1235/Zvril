@@ -1,0 +1,330 @@
+{
+  "schema_version": "0.1",
+  "seed": 3619,
+  "compiler": "cc (GCC) 16.2.1 20261029 (Red Hat 16.2.1-3)",
+  "packages": [
+    {
+      "repository": "zserge/jsmn",
+      "commit": "25647e692c7906b96ffd2b05ca54c097948e879c"
+    },
+    {
+      "repository": "DaveGamble/cJSON",
+      "commit": "6d9f2443ab071f86e5d9b43025a40929ec41c46c"
+    },
+    {
+      "repository": "Cyan4973/xxHash",
+      "commit": "2ec67caeb18ec15ae60c0853174331089acddfc0"
+    },
+    {
+      "repository": "richgel999/miniz",
+      "commit": "2c50092b3a4010760df02e7842960abdc3f25ee3"
+    },
+    {
+      "repository": "sheredom/utf8.h",
+      "commit": "913014e0d56051b242a1959d24d3f3cb5d13a9ef"
+    },
+    {
+      "repository": "antirez/sds",
+      "commit": "5347739b1581fcba74fd5cab1fc21d2aef317d71"
+    },
+    {
+      "repository": "rxi/vec",
+      "commit": "20e84224ceb29a8f76d2b9d0ccfc547258a14ec5"
+    },
+    {
+      "repository": "rxi/log.c",
+      "commit": "f9ea34994bd58ed342d2245cd4110bb5c6790153"
+    },
+    {
+      "repository": "clibs/list",
+      "commit": "a86671d0e116b7d89cb191762152b29d39b44ed6"
+    },
+    {
+      "repository": "kokke/tiny-regex-c",
+      "commit": "f2632c6d9ed25272987471cdb8b70395c2460bdb"
+    }
+  ],
+  "tool_version": "0.3.0",
+  "results": [
+    {
+      "project": "zserge-jsmn",
+      "function": "jsmn_parse",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "511badb95355c65e3c294a28b42c25f5afee38f89511dfc5165c126e019cfbc2",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "61caa894bd020579645208fafc0ac92b639ea1b3990e9bdd5fd88ebd0e60d104",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "35c7011561d88557c66d1bd45900aab2ddc6dd1780b066c61154e42fff632f63",
+      "cases_sha256": "511badb95355c65e3c294a28b42c25f5afee38f89511dfc5165c126e019cfbc2"
+    },
+    {
+      "project": "DaveGamble-cJSON",
+      "function": "cJSON_IsArray",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "ed2998ea8ad614984e03f9f1d0b5dc1588cdad570695a27299270c86fe66c660",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "67a2b5fd659fc0212c73f8f3a60de30aa28250a640963bbcc86bb65b2d10d762",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "a2d185cb5cbeec13a87ee530eea7d8746a1c6663e6977a2d4356887065b05ae2",
+      "cases_sha256": "ed2998ea8ad614984e03f9f1d0b5dc1588cdad570695a27299270c86fe66c660"
+    },
+    {
+      "project": "Cyan4973-xxHash",
+      "function": "XXH32",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "c640affc169aa4dc55b4070904b9a8f18ef9f7f69a37e054c4fd5faa401504c6",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "7b9c0e2a2121d28a057a4c4a1a7951ebedd5b006365ce9d7840ba94eb8236d14",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "22e43400d23ba9f07a6174827e36eb2d22ef45741735b74fd9660f17a6bd9e0a",
+      "cases_sha256": "c640affc169aa4dc55b4070904b9a8f18ef9f7f69a37e054c4fd5faa401504c6"
+    },
+    {
+      "project": "richgel999-miniz",
+      "function": "mz_adler32",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "c8a91ddd9fda40119b61f38293c1bc138c85950285a97d5df334537238a1cb93",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "73102120584b4016876b230698ae7f203567db3abcc29328087137b7fd911855",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "558e685018f5c525caf62b5b36c2fed69044f45c408f5e055ab2b1068a452586",
+      "cases_sha256": "c8a91ddd9fda40119b61f38293c1bc138c85950285a97d5df334537238a1cb93"
+    },
+    {
+      "project": "sheredom-utf8.h",
+      "function": "utf8codepointsize",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "1443d401c49a2559a99c658487b07e528b88fbe20785facacfd2a593f847d38b",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "f6233596172afad908bcb4ec3802cd6c80b195a07b02597d5587ef1e75d10ae2",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "243a8e257514f1364d560ba2ad34a8a848dd03ac6149f781623f801e31006553",
+      "cases_sha256": "1443d401c49a2559a99c658487b07e528b88fbe20785facacfd2a593f847d38b"
+    },
+    {
+      "project": "antirez-sds",
+      "function": "sdscmp",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "48a29b7af32502e891cbada5b520a6b2cb1932ce70b656c265d4a9c34ad89757",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "19feadb394cb52ab1af283dbd90554d8a694191c8e161bbcc86d0e65f1c32053",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "sign",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "2e4dd71c830e8efe23fb2c5ee6f934e7d474afcc9aade5ac892df62085311d88",
+      "cases_sha256": "48a29b7af32502e891cbada5b520a6b2cb1932ce70b656c265d4a9c34ad89757"
+    },
+    {
+      "project": "rxi-vec",
+      "function": "vec_swap_",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "962d156527e86b16ef2b04802d5c90c358cbf0b7ff3b585d9dc69516bbcb7fa9",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "299cb8061a84e784b1d2a98e564693bd57d35ea0a81fb53b9befc614b7b462a3",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "4d427d8898e840197fcc254bedbd49a3c581da53b59065dbb02c590ccac59911",
+      "cases_sha256": "962d156527e86b16ef2b04802d5c90c358cbf0b7ff3b585d9dc69516bbcb7fa9"
+    },
+    {
+      "project": "rxi-log.c",
+      "function": "log_set_level",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "e9877b5d7cf060e09b7fff39414860ab610a52885f8de2eb2f880bb4db398aaa",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "20d9f084cd319430725085f6092923d421a53a0b7463fe355c3b57006d018b65",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "13319e1e8d2123cbaf341c67e0c8923ca1970cb49680cc63f243610192195cb3",
+      "cases_sha256": "e9877b5d7cf060e09b7fff39414860ab610a52885f8de2eb2f880bb4db398aaa"
+    },
+    {
+      "project": "clibs-list",
+      "function": "list_at",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "6a70b6895de7a58f00c19eec8e51a990c3420439faf0d0d0a16684ea2b82596d",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "a828159493c31204e8587872d7fe15a19867e4bf123ac22e1aa11df4830d637c",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "415901485205032d48fecf2cfe053624259ebe620869f9fb3973f256200e1177",
+      "cases_sha256": "6a70b6895de7a58f00c19eec8e51a990c3420439faf0d0d0a16684ea2b82596d"
+    },
+    {
+      "project": "kokke-tiny-regex-c",
+      "function": "re_match",
+      "attempted_cases": 1000,
+      "status": "TESTED",
+      "validation": {
+        "cases": 1000,
+        "cases_sha256": "9d6405a9975385b910879fd50cd9022e291cf1723b788ee3c4c5d6ccf9b7b67b",
+        "comparison_contract": "Declared SysV scalar return and named input buffers; defined machine state is covered separately by ISA tests",
+        "contract_sha256": "baf6df4c2a2bac60d8347c666cccba7911c2f8129a9b06722c04177029cedbb4",
+        "first_failure_reproducer": null,
+        "mismatches": 0,
+        "native_instruction_trace": "unavailable: ptrace denied by host",
+        "passed": 1000,
+        "return_comparison": "bits",
+        "sandbox": {
+          "address_space_limit": "0x80000000",
+          "filesystem": "Landlock read-only allowlist",
+          "network": "seccomp denied",
+          "process_creation": "denied",
+          "timeout_ms": 5000
+        },
+        "schema_version": "0.1",
+        "unknown": 0
+      },
+      "source_sha256": "cbf886eb3d381eb7cba8c9d72d9facc708508724fa14f34cb03034307ddf3aa5",
+      "cases_sha256": "9d6405a9975385b910879fd50cd9022e291cf1723b788ee3c4c5d6ccf9b7b67b"
+    }
+  ]
+}

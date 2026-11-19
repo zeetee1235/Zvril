@@ -1,0 +1,7 @@
+{
+  "signature": {"return": "u64", "arguments": ["u64", "u64"]},
+  "cases": [
+    {"id": "addition", "arguments": [40, 2]},
+    {"id": "wrap", "arguments": ["0xffffffffffffffff", 1]}
+  ]
+}

@@ -1,0 +1,458 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zvril:report:0.1",
+  "title": "Zvril ELF analysis and lifting report v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "tool_version",
+    "source_sha256",
+    "elf_type",
+    "machine",
+    "backend",
+    "llvm_version",
+    "status",
+    "functions",
+    "diagnostics",
+    "timings",
+    "resources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "source_path": {
+      "type": "string"
+    },
+    "source_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "elf_type": {
+      "enum": [
+        "ET_EXEC",
+        "ET_DYN",
+        null
+      ]
+    },
+    "machine": {
+      "enum": [
+        "EM_X86_64",
+        null
+      ]
+    },
+    "backend": {
+      "type": "string"
+    },
+    "llvm_version": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "#/$defs/status"
+    },
+    "entry": {
+      "$ref": "#/$defs/hex64"
+    },
+    "functions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/function"
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "address",
+          "offset",
+          "file_size",
+          "memory_size",
+          "zero_fill_size",
+          "alignment",
+          "permissions"
+        ],
+        "properties": {
+          "address": {
+            "$ref": "#/$defs/hex64"
+          },
+          "offset": {
+            "$ref": "#/$defs/hex64"
+          },
+          "file_size": {
+            "$ref": "#/$defs/hex64"
+          },
+          "memory_size": {
+            "$ref": "#/$defs/hex64"
+          },
+          "zero_fill_size": {
+            "$ref": "#/$defs/hex64"
+          },
+          "alignment": {
+            "$ref": "#/$defs/hex64"
+          },
+          "permissions": {
+            "type": "string",
+            "pattern": "^[R-][W-][X-]$"
+          }
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "imports": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "relocations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "timings": {
+      "type": "object"
+    },
+    "resources": {
+      "type": "object"
+    },
+    "analysis_scope": {
+      "type": "string"
+    },
+    "symbol_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "symbol",
+          "version",
+          "provider",
+          "defined",
+          "hidden",
+          "address",
+          "symbol_index",
+          "symbol_table_offset"
+        ],
+        "properties": {
+          "symbol": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "defined": {
+            "type": "boolean"
+          },
+          "hidden": {
+            "type": "boolean"
+          },
+          "address": {
+            "$ref": "#/$defs/hex64"
+          },
+          "symbol_index": {
+            "$ref": "#/$defs/hex64"
+          },
+          "symbol_table_offset": {
+            "$ref": "#/$defs/hex64"
+          }
+        }
+      }
+    },
+    "process": {
+      "$ref": "#/$defs/process"
+    }
+  },
+  "$defs": {
+    "hex64": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{1,16}$"
+    },
+    "status": {
+      "enum": [
+        "INSPECTED",
+        "BLOCKED",
+        "PARTIAL",
+        "LIFTED",
+        "TESTED",
+        "EXECUTED"
+      ]
+    },
+    "function": {
+      "type": "object",
+      "required": [
+        "name",
+        "address",
+        "size",
+        "discovery_evidence",
+        "boundary_known",
+        "status",
+        "instruction_count",
+        "unsupported_instructions",
+        "unresolved_edges",
+        "llvm_verified",
+        "tested_cases"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "$ref": "#/$defs/hex64"
+        },
+        "size": {
+          "$ref": "#/$defs/hex64"
+        },
+        "discovery_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "boundary_known": {
+          "type": "boolean"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "instruction_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "unsupported_instructions": {
+          "type": "array"
+        },
+        "unresolved_edges": {
+          "type": "array"
+        },
+        "llvm_verified": {
+          "type": "boolean"
+        },
+        "tested_cases": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "LIFTED",
+                  "TESTED"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "llvm_verified": {
+                "const": true
+              },
+              "instruction_count": {
+                "type": "integer",
+                "minimum": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "TESTED"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "tested_cases": {
+                "minimum": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "diagnostic": {
+      "type": "object",
+      "required": [
+        "code",
+        "severity",
+        "pc",
+        "function",
+        "message",
+        "evidence"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[EW]_[A-Z0-9_]+$"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ]
+        },
+        "pc": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/hex64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "function": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array"
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "mode",
+        "status",
+        "guest_exit_code",
+        "instructions",
+        "compiled_modules",
+        "code_version_changes",
+        "syscalls",
+        "modules",
+        "threads",
+        "stdout_hex",
+        "stderr_hex"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "0.1"
+        },
+        "mode": {
+          "const": "dynamic-instruction-lifting"
+        },
+        "status": {
+          "enum": [
+            "EXECUTED",
+            "BLOCKED"
+          ]
+        },
+        "guest_exit_code": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 255
+        },
+        "instructions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "compiled_modules": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "code_version_changes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "syscall_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "stdout_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2})*$"
+        },
+        "stderr_hex": {
+          "type": "string",
+          "pattern": "^(?:[0-9a-f]{2})*$"
+        },
+        "syscalls": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "threads": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "BLOCKED"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "error"
+            ],
+            "properties": {
+              "guest_exit_code": {
+                "type": "null"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "guest_exit_code": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+name: build-and-validate
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  fedora:
+    runs-on: ubuntu-latest
+    container: fedora:44
+    strategy:
+      fail-fast: false
+      matrix:
+        config: [release, asan]
+    env:
+      ASAN_OPTIONS: detect_leaks=0
+    steps:
+      - name: Install build dependencies
+        run: dnf -y install git gcc gcc-c++ clang llvm-devel cmake ninja-build python3 zlib-devel libzstd-devel binutils tar gzip
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Check pinned sources
+        run: python3 tools/check_sources.py
+      - name: Configure release
+        if: matrix.config == 'release'
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Configure sanitizers
+        if: matrix.config == 'asan'
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DZVRIL_SANITIZERS=ON
+      - name: Build
+        run: cmake --build build -j 4
+      - name: Regression
+        run: ctest --test-dir build --output-on-failure
+      - name: Real library corpus
+        if: matrix.config == 'release'
+        run: python3 tools/run_corpus.py --cases 1000
+      - name: Build package and installed demo
+        if: matrix.config == 'release'
+        run: python3 tools/package.py --build build --out dist
+      - name: Compare pinned corpus baseline
+        if: matrix.config == 'release'
+        run: python3 tools/check_regression.py tests/baselines/corpus-gcc16-linux.json build/corpus-results/manifest.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: validation-${{ matrix.config }}
+          path: |
+            build/test-results/
+            build/corpus-results/manifest.json
+            build/Testing/Temporary/LastTest.log
+            dist/*.tar.gz
+            dist/*.sha256

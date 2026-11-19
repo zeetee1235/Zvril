@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zvril:process:0.1",
+  "title": "Zvril dynamic process execution record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mode",
+    "status",
+    "guest_exit_code",
+    "instructions",
+    "compiled_modules",
+    "code_version_changes",
+    "syscalls",
+    "modules",
+    "threads",
+    "stdout_hex",
+    "stderr_hex"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "mode": {
+      "const": "dynamic-instruction-lifting"
+    },
+    "status": {
+      "enum": [
+        "EXECUTED",
+        "BLOCKED"
+      ]
+    },
+    "guest_exit_code": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 255
+    },
+    "instructions": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "compiled_modules": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "code_version_changes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "syscall_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "stdout_hex": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{2})*$"
+    },
+    "stderr_hex": {
+      "type": "string",
+      "pattern": "^(?:[0-9a-f]{2})*$"
+    },
+    "syscalls": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "threads": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "BLOCKED"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "guest_exit_code": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "guest_exit_code": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  ]
+}
