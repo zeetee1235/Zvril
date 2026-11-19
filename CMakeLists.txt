@@ -4,6 +4,11 @@ project(Zvril VERSION 0.0.1 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+# Ubuntu installs LLVM 22 under /usr/lib/llvm-22 instead of the default CMake
+# search path. Prefer that pinned toolchain when the caller did not select one.
+if(NOT LLVM_DIR AND EXISTS "/usr/lib/llvm-22/lib/cmake/llvm/LLVMConfig.cmake")
+  set(LLVM_DIR "/usr/lib/llvm-22/lib/cmake/llvm")
+endif()
 find_package(LLVM REQUIRED CONFIG)
 if(NOT LLVM_VERSION_MAJOR EQUAL 22)
   message(FATAL_ERROR "This baseline is tested with LLVM 22; select LLVM_DIR explicitly")

@@ -59,8 +59,9 @@ download dependencies.
 | Environment | Status |
 |---|---|
 | Fedora 44, GCC 16, LLVM/Clang 22.1.8, glibc 2.43 | Verified: 23/23 CTest on lab2 |
+| Ubuntu 24.04, GCC 13, LLVM/Clang 22 | Verified in a clean container with LLVM 22 from apt.llvm.org |
+| Ubuntu 22.04 | Expected with LLVM 22 from apt.llvm.org; not qualified here |
 | Other x86-64 glibc distros | Unverified. You must supply LLVM 22 and a 64-bit static libstdc++ for the full suite |
-| Ubuntu/Debian | Unverified. LLVM 22 is not in the default repositories; use packages from apt.llvm.org |
 | musl/Alpine | Unsupported (dynamic loader and test assumptions are glibc-specific) |
 | Non-x86-64 | Unsupported |
 
@@ -70,6 +71,19 @@ across hosts, because glibc, compiler, and kernel versions change the executed
 path. On a supported host the suite is deterministic and repeatable; on an
 unsupported host the build or individual process tests stop with a clear error
 instead of silently passing.
+
+### Ubuntu 24.04
+
+```sh
+sudo ./scripts/install-deps-ubuntu.sh
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j 4
+ctest --test-dir build --output-on-failure
+```
+
+The script adds the apt.llvm.org repository, installs LLVM/Clang 22, and
+installs the static libstdc++ needed by the C++ exception test. CMake finds
+`/usr/lib/llvm-22` automatically.
 
 ## Build
 

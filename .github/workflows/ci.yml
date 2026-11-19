@@ -47,3 +47,27 @@ jobs:
             build/Testing/Temporary/LastTest.log
             dist/*.tar.gz
             dist/*.sha256
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: ubuntu:24.04
+    steps:
+      - name: Install git for checkout
+        run: apt-get update && apt-get install -y git
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install LLVM 22 and build dependencies
+        run: ./scripts/install-deps-ubuntu.sh
+      - name: Check pinned sources
+        run: python3 tools/check_sources.py
+      - name: Configure
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build -j 4
+      - name: Regression
+        run: ctest --test-dir build --output-on-failure
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: validation-ubuntu
+          path: |
+            build/test-results/
+            build/Testing/Temporary/LastTest.log
